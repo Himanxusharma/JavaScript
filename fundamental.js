@@ -304,7 +304,7 @@ html=`
     </ul>
 `;
 
-document.body.innerHTML=html;
+// document.body.innerHTML=html;
 
 
 // Arrays & Array Methods
@@ -348,7 +348,7 @@ val5=numbers1.concat(numbers2);
 val5=fruit.sort();
 val5=numbers1.sort();
 
-// Use the "compare function"
+// Use the "compare function" to sort
 val5=numbers1.sort(function(x,y){
     return x-y;
 }
@@ -376,6 +376,388 @@ const person1={
     firstName:'Steve',
     lastName:'Smith',
     age:30,
-    email:''}
+    email:'hello@femail.com'}
 
 
+
+
+//Date and Time
+let val6;
+
+const today=new Date();
+let birthday=new Date('9-10-1981 11:25:00');
+birthday=new Date('September 10 1981');
+birthday=new Date('9/10/1981');
+
+val6=today.getMonth();
+val6=today.getDate();
+val6=today.getDay();
+val6=today.getFullYear();
+val6=today.getHours();
+val6=today.getMinutes();
+val6=today.getSeconds();
+val6=today.getMilliseconds();
+val6=today.getTime();
+
+birthday.setMonth(2);
+birthday.setDate(12);
+birthday.setFullYear(1985);
+birthday.setHours(3);
+birthday.setMinutes(30);
+birthday.setSeconds(25);
+
+console.log(birthday);
+
+
+// If Statements & Comparison Operators
+// if(something){
+//     do something
+// } else {
+//     do something else
+// }
+
+const id=100;
+
+// // EQUAL TO
+// if(id==100){
+//     console.log('CORRECT');
+// } else {
+//     console.log('INCORRECT');
+// }
+
+// // NOT EQUAL TO
+// if(id!=101){
+//     console.log('CORRECT');
+// } else {
+//     console.log('INCORRECT');
+// }
+
+// // EQUAL TO VALUE & TYPE
+// if(id===100){
+//     console.log('CORRECT');
+// } else {
+//     console.log('INCORRECT');
+// }
+
+// // NOT EQUAL TO VALUE & TYPE
+// if(id!==100){
+//     console.log('CORRECT');
+// } else {
+//     console.log('INCORRECT');
+// }
+
+
+// // Test if undefined
+// if(typeof id !== 'undefined'){
+//     console.log(`The ID is ${id}`);
+// } else {
+//     console.log('NO ID');
+// }
+
+// // GREATER OR LESS THAN
+// if(id>=100){
+//     console.log('CORRECT');
+// } else {
+//     console.log('INCORRECT');
+// }
+
+// IF ELSE
+// const color='yellow';
+
+// if(color==='red'){
+//     console.log('Color is red');
+// } else if(color==='blue'){
+//     console.log('Color is blue');
+// } else {
+//     console.log('Color is not red or blue');
+// }
+
+// LOGICAL OPERATORS
+const name4='Steve';
+const age4=20;
+
+// AND &&
+if(age4>0 && age4<12){
+    console.log(`${name4} is a child`);
+}
+else if(age4>=13 && age4<=19){
+    console.log(`${name4} is a teenager`);
+}
+else {
+    console.log(`${name4} is an adult`);
+}
+
+// OR ||
+if(age4<16 || age4>65){
+    console.log(`${name4} can not run in race`);
+}
+else {
+    console.log(`${name4} is registered for the race`);
+}
+
+// TERNARY OPERATOR
+console.log(id===100 ? 'CORRECT' : 'INCORRECT');
+
+// WITHOUT BRACES
+if(id===100)
+
+    console.log('CORRECT');
+else
+    console.log('INCORRECT');
+
+
+// SWITCHES
+const color='yellow';
+
+switch(color){
+    case 'red':
+        console.log('Color is red');
+        break;
+    case 'blue':
+        console.log('Color is blue');
+        break;
+    default:
+        console.log('Color is not red or blue');
+        break;
+}
+
+let day;
+
+switch(new Date().getDay()){
+    case 0:
+        day='Sunday';
+        break;
+    case 1:
+        day='Monday';
+        break;
+    case 2:
+        day='Tuesday';
+        break;
+    case 3:
+        day='Wednesday';
+        break;
+    case 4:
+        day='Thursday';
+        break;
+    case 5:
+        day='Friday';
+        break;
+    case 6:
+        day='Saturday';
+        break;
+}
+
+console.log(`Today is ${day}`);
+
+// Function Declarations & Expressions
+// FUNCTION DECLARATIONS
+
+function greet(){
+    // console.log('Hello');
+    return 'Hello';
+}
+
+// console.log(greet());
+
+// FUNCTION EXPRESIONS
+
+const square=function(x=3){
+    return x*x;
+}
+
+// console.log(square());
+
+// IMMIDIATLEY INVOKABLE FUNCTION EXPRESSIONS - IIFEs
+
+// (function(){
+//     console.log('IIFE Ran..');
+// })();
+// (function(name){
+//     console.log('Hello '+name);
+// })('Brad');
+
+// PROPERTY METHODS
+
+const todo={
+    add:function(){
+        console.log('Add todo..');
+    }
+    ,
+    edit:function(id){
+        console.log(`Edit todo ${id}`);
+    }
+}
+
+
+todo.delete=function(){
+    console.log('Delete todo...');
+}
+
+todo.add();
+todo.edit(22);
+todo.delete();
+
+
+// General Loops
+// FOR LOOP
+
+// for(let i=0;i<10;i++){
+//     if(i===2){
+//         console.log('2 is my favorite number');
+//         continue;
+//     }
+
+//     if(i===5){
+//         console.log('Stop the loop');
+//         break;
+//     }
+
+//     console.log('Number '+i);
+// }
+
+// WHILE LOOP
+
+// let i=0;
+
+// while(i<10){
+//     console.log('Number '+i);
+//     i++;
+// }
+
+// DO WHILE
+
+// let i=0;
+
+// do {
+//     console.log('Number '+i);
+//     i++;
+// }
+
+// while(i<10);
+
+// LOOP THROUGH ARRAY
+const cars=['Ford','Chevy','Honda','Toyota'];
+
+// for(let i=0;i<cars.length;i++){
+//     console.log(cars[i]);
+// }
+
+// FOREACH
+// cars.forEach(function(car,index,array){
+//     console.log(`${index} : ${car}`);
+//     console.log(array);
+// });
+
+// MAP
+// const users=[
+//     {id:1,name:'John'},
+//     {id:2,name:'Sara'},
+//     {id:3,name:'Karen'},
+//     {id:4,name:'Steve'}
+// ];
+
+// const ids=users.map(function(user){
+//     return user.id;
+// });
+
+// console.log(ids);
+
+// FOR IN LOOP
+const user={
+    firstName:'John',
+    lastName:'Doe',
+    age:40
+}
+
+for(let x in user){
+    console.log(`${x} : ${user[x]}`);
+}
+
+
+// A look at the window object
+// WINDOW METHODS / OBJECTS / PROPERTIES
+
+// Alert
+// alert('Hello World');
+
+// Prompt
+// const input=prompt();
+// alert(input);
+
+// Confirm
+// if(confirm('Are you sure')){
+//     console.log('YES');
+// } else {
+//     console.log('NO');
+// }
+
+let val7;
+
+// Outer height and width
+val7=window.outerHeight;
+val7=window.outerWidth;
+
+// Inner height and width
+val7=window.innerHeight;
+val7=window.innerWidth;
+
+// Scroll points
+val7=window.scrollY;
+val7=window.scrollX;
+
+// Location Object
+val7=window.location;
+val7=window.location.hostname;
+val7=window.location.port;
+val7=window.location.href;
+val7=window.location.search;
+
+// Redirect
+// window.location.href='http://google.com';
+// Reload
+// window.location.reload();
+
+// History Object
+// window.history.go(-2);
+// val7=window.history.length;
+
+// Navigator Object
+val7=window.navigator;
+val7=window.navigator.appName;
+val7=window.navigator.appVersion;
+val7=window.navigator.userAgent;
+val7=window.navigator.platform;
+val7=window.navigator.vendor;
+val7=window.navigator.language;
+
+console.log(val7);
+
+
+// Block Scope With let & const
+// Global Scope
+var a=1;
+let b=2;
+const c=3;
+
+// function test(){
+//     var a=4;
+//     let b=5;
+//     const c=6;
+//     console.log('Function Scope: ',a,b,c);
+// }
+
+// test();
+
+// if(true){
+//     // Block Scope
+//     var a=4;
+//     let b=5;
+//     const c=6;
+//     console.log('If Scope: ',a,b,c);
+// }
+
+for(let a=0;a<10;a++){
+    console.log(`Loop: ${a}`);
+}
+
+console.log('Global Scope: ',a,b,c);
