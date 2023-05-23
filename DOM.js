@@ -3,7 +3,7 @@
 
 // document.getElementById()
 
-// console.log(document.getElementById('task-title'));
+console.log(document.getElementById('container'));
 
 // // Get things from the element
 // console.log(document.getElementById('task-title').id);
