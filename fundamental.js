@@ -598,19 +598,19 @@ todo.edit(22);
 todo.delete();
 
 
-const person = {
+// const person = {
 
-    hello: function (){
-        console.log('Hello');
-    }
-    ,
-    age:function(){
-        console.log('age');
-    }
-}
+//     hello: function (){
+//         console.log('Hello');
+//     }
+//     ,
+//     age:function(){
+//         console.log('age');
+//     }
+// }
 
-person.hello();
-person.age();
+// person.hello();
+// person.age();
 
 
 
@@ -665,6 +665,8 @@ const cars=['Ford','Chevy','Honda','Toyota'];
 //  It is a method that takes in a function as an argument.
 //  It is a method that calls a function for each element in an array.
 
+// const cars1=['Ford','Chevy','Honda','Toyota'];
+// cars1.forEach(car=>{console.log(car)});
 
 // cars.forEach(function(car,index,array){
 //     console.log(`${index} : ${car}`);
@@ -736,19 +738,28 @@ for(let user of users){
 let val7;
 
 // Outer height and width
+// Outer height and width includes the console and the scrollbar
 val7=window.outerHeight;
+console.log(val7);
 val7=window.outerWidth;
+console.log(val7);
 
 // Inner height and width
+// Inner height and width does not include the console and the scrollbar
 val7=window.innerHeight;
 val7=window.innerWidth;
+console.log(val7);
+
 
 // Scroll points
 val7=window.scrollY;
+console.log(val7);
 val7=window.scrollX;
+console.log(val7);
 
 // Location Object
 val7=window.location;
+console.log(val7);
 val7=window.location.hostname;
 val7=window.location.port;
 val7=window.location.href;
@@ -756,15 +767,18 @@ val7=window.location.search;
 
 // Redirect
 // window.location.href='http://google.com';
+
 // Reload
 // window.location.reload();
 
 // History Object
 // window.history.go(-2);
 // val7=window.history.length;
+// console.log(val7);
 
 // Navigator Object
 val7=window.navigator;
+console.log(val7);
 val7=window.navigator.appName;
 val7=window.navigator.appVersion;
 val7=window.navigator.userAgent;
@@ -772,7 +786,7 @@ val7=window.navigator.platform;
 val7=window.navigator.vendor;
 val7=window.navigator.language;
 
-console.log(val7);
+
 
 
 // Block Scope With let & const
