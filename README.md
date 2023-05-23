@@ -53,6 +53,8 @@ This repository covers a wide range of JavaScript topics, enabling you to build 
   - Objects and classes
   - Arrays and array methods
 - [DOM manipulation](https://github.com/Himanxusharma/JavaScript/blob/main/DOM.js)
+- [Object Oriented Programming](https://github.com/Himanxusharma/JavaScript/blob/main/OOPs.js)
+- [XHR,Ajax and fetch API]()
 - Asynchronous programming with Promises and async/await
 - Error handling
 - Regular expressions
