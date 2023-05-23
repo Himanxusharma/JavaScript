@@ -3,12 +3,12 @@
 
 // document.getElementById()
 
-console.log(document.getElementById('container'));
-let doc;
-doc = document;
-doc = document.all;
-doc = document.all[0];
-doc = document.all[1];
+// console.log(document.getElementById('container'));
+// let doc;
+// doc = document;
+// doc = document.all;
+// doc = document.all[0];
+// doc = document.all[1];
 
 // doc = document.all.length;
 // doc = document.head;
@@ -37,14 +37,14 @@ doc = document.all[1];
 // doc = document.scripts;  
 // doc = document.scripts[2].getAttribute('src');
 
-let scripts = document.scripts; // HTML collection
-let scriptsArr = Array.from(scripts);   // convert to array
+// let scripts = document.scripts; // HTML collection
+// let scriptsArr = Array.from(scripts);   // convert to array
 
-scriptsArr.forEach(function(script,index) {
-    console.log(index,script.getAttribute('src'));  
-});
+// scriptsArr.forEach(function(script,index) {
+//     console.log(index,script.getAttribute('src'));  
+// });
 
-console.log(doc);
+// console.log(doc);
 
 
 
@@ -253,14 +253,14 @@ console.log(doc);
 
 // // EVENTS
 
- document.querySelector('#submit-btn').addEventListener('click',function(e) {
-     console.log('Hello World');
-     e.preventDefault();
-     let item
-     item = e.target.id;
-     console.log(item);
+//  document.querySelector('#submit-btn').addEventListener('click',function(e) {
+//      console.log('Hello World');
+//      e.preventDefault();
+//      let item
+//      item = e.target.id;
+//      console.log(item);
 
- });
+//  });
 
 // document.querySelector('.clear-tasks').addEventListener('click',onClick);
 
@@ -317,7 +317,7 @@ console.log(doc);
 // // Mousemove
 // card.addEventListener('mousemove',runEvent);
 
-// // Event Handler
+// // Event Handler 
 // function runEvent(e) {
 
 //     e.preventDefault(); // prevent default behaviour
@@ -325,7 +325,7 @@ console.log(doc);
 // }
 
 
-// // KEYBOARD & INPUT EVENTS
+// // KEYBOARD & INPUT EVENTS   
 
 // const form = document.querySelector('form');
 // const taskInput = document.querySelector('form');
@@ -396,7 +396,77 @@ console.log(doc);
 
 // EVENT BUBBLING & DELEGATION
 
-// EVENT BUBBLING
+//STOP PROPAGATION - The stopPropagation() method prevents propagation of the same event from being called.
+// EVENT BUBBLING   - The bubbling principle is simple. When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+
+// document.querySelector('.card-title').addEventListener('click',function() {
+//     console.log('card title');
+// });
+
+// document.querySelector('.card-content').addEventListener('click',function() {
+//     console.log('card content');
+// });
+
+// document.querySelector('.card').addEventListener('click',function() {
+//     console.log('card');
+// });
+
+// document.querySelector('.col').addEventListener('click',function() {
+//     console.log('col');
+// });
+
+// EVENT DELEGATION - Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
+
+
+// document.body.addEventListener('click',addFavorite);
+
+// function addFavorite(e) {
+
+//     console.log(e.target);
+//     if(e.target.parentElement.classList.contains('add-favorite')) {
+//         console.log('add favorite');
+//         if(e.target.parentElement.parentElement.style['background-color'] == 'yellow') {
+//             e.target.parentElement.parentElement.style['background-color'] = 'white';
+//         }
+//         else {
+//             e.target.parentElement.parentElement.style['background-color'] = 'yellow';
+//         }
+//         // e.target.parentElement.parentElement.remove();
+//     }
+
+//     else{
+
+//         console.log('not found add favorite');
+//         if(e.target.parentElement.parentElement.style['background-color'] == 'yellow') {
+//             e.target.parentElement.parentElement.style['background-color'] = 'white';
+//         }
+//         else {
+//             e.target.parentElement.parentElement.style['background-color'] = 'yellow';
+//         }
+//     }
+// }
+
+
+
+
+// const delItem = document.querySelector('.delete-item');
+
+// delItem.addEventListener('click',deleteItem);
+
+// document.body.addEventListener('click',deleteItem);
+
+// function deleteItem(e) {
+//     // if(e.target.parentElement.className === 'delete-item secondary-content') {
+//     //     console.log('delete item');
+//     // }
+
+//     if(e.target.parentElement.classList.contains('delete-item')) {
+//         console.log('delete item');
+//         e.target.parentElement.parentElement.remove();
+//     }
+// }
+
+
 
 
 
