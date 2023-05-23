@@ -1,0 +1,53 @@
+querySelector and querySelectorAll vs getElementsByClassName and getElementById
+Main Differences
+querySelector* is more flexible, as you can pass it any CSS3 selector, not just simple ones for id, tag, or class.
+
+The performance of querySelector changes with the size of the DOM that it is invoked on.* To be precise, querySelector* calls run in O(n) time and getElement* calls run in O(1) time, where n is the total number of all children of the element or document it is invoked on. This fact seems to be the least well-known, so I am bolding it.
+
+getElement* calls return direct references to the DOM, whereas querySelector* internally makes copies of the selected elements before returning references to them. These are referred to as "live" and "static" elements. This is NOT strictly related to the types that they return. There is no way I know of to tell if an element is live or static programmatically, as it depends on whether the element was copied at some point, and is not an intrinsic property of the data. Changes to live elements apply immediately - changing a live element changes it directly in the DOM, and therefore the very next line of JS can see that change, and it propagates to any other live elements referencing that element immediately. Changes to static elements are only written back to the DOM after the current script is done executing. These extra copy and write steps have some small, and generally negligible, effect on performance.
+
+The return types of these calls vary. querySelector and getElementById both return a single element. querySelectorAll and getElementsByName both return NodeLists, being newer functions that were added after HTMLCollection went out of fashion. The older getElementsByClassName and getElementsByTagName both return HTMLCollections. Again, this is essentially irrelevant to whether the elements are live or static.
+
+These concepts are summarized in the following table.
+
+Function               | Live? | Type           | Time Complexity
+querySelector          |   N   | Element        |  O(n)
+querySelectorAll       |   N   | NodeList       |  O(n)
+getElementById         |   Y   | Element        |  O(1)
+getElementsByClassName |   Y   | HTMLCollection |  O(1)
+getElementsByTagName   |   Y   | HTMLCollection |  O(1)
+getElementsByName      |   Y   | NodeList       |  O(1)
+Details, Tips, and Examples
+HTMLCollections are not as array-like as NodeLists and do not support .forEach(). I find the spread operator useful to work around this:
+
+[...document.getElementsByClassName("someClass")].forEach()
+
+Every element, and the global document, have access to all of these functions except for getElementById and getElementsByName, which are only implemented on document.
+
+Chaining getElement* calls instead of using querySelector* will improve performance, especially on very large DOMs. Even on small DOMs and/or with very long chains, it is generally faster. However, unless you know you need the performance, the readability of querySelector* should be preferred. querySelectorAll is often harder to rewrite, because you must select elements from the NodeList or HTMLCollection at every step. For example, the following code does not work:
+
+document.getElementsByClassName("someClass").getElementsByTagName("div")
+
+because you can only use getElements* on single elements, not collections. For example:
+ 
+`document.querySelector("#someId .someClass div")`
+ 
+could be written as:
+document.getElementById("someId").getElementsByClassName("someClass")[0].getElementsByTagName("div")[0]
+
+Note the use of `[0]` to get just the first element of the collection at each step that returns a collection, resulting in one element at the end just like with `querySelector`.
+Since all elements have access to both querySelector* and getElement* calls, you can make chains using both calls, which can be useful if you want some performance gain, but cannot avoid a querySelector that can not be written in terms of the getElement* calls.
+
+Though it is generally easy to tell if a selector can be written using only getElement* calls, there is one case that may not be obvious:
+
+document.querySelectorAll(".class1.class2")
+
+can be rewritten as
+
+document.getElementsByClassName("class1 class2")
+
+Using getElement* on a static element fetched with querySelector* will result in an element that is live with respect to the static subset of the DOM copied by querySelector, but not live with respect to the full document DOM... this is where the simple live/static interpretation of elements begins to fall apart. You should probably avoid situations where you have to worry about this, but if you do, remember that querySelector* calls copy elements they find before returning references to them, but getElement* calls fetch direct references without copying.
+
+Neither API specifies which element should be selected first if there are multiple matches.
+
+Because querySelector* iterates through the DOM until it finds a match (see Main Difference #2), the above also implies that you cannot rely on the position of an element you are looking for in the DOM to guarantee that it is found quickly - the browser may iterate through the DOM backwards, forwards, depth first, breadth first, or otherwise. getElement* will still find elements in roughly the same amount of time regardless of their placement.

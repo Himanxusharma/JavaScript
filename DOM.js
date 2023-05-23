@@ -467,6 +467,67 @@
 // }
 
 
+// LOCAL & SESSION STORAGE
+
+// set local storage item
+localStorage.setItem('name','LocalJOhn');
+localStorage.setItem('email','localStorage@femail.com');
+localStorage.setItem('age','18');
+
+// set session storage item
+sessionStorage.setItem('name','SessionJOhn');
+
+const age = localStorage.getItem('age');
+console.log(age);
+const name = localStorage.getItem('name');
+console.log(name);
+const name1 = sessionStorage.getItem('name');
+console.log(name1);
+
+
+// // remove from storage
+// localStorage.removeItem('name');
+
+// // clear local storage
+// localStorage.clear();
+
+//JSON.parse() - The JSON.parse() method parses a JSON string, constructing the JavaScript value or object described by the string.
+
+//JSON.stringify() - The JSON.stringify() method converts a JavaScript object or value to a JSON string, optionally replacing values if a replacer function is specified or optionally including only the specified properties if a replacer array is specified.
+
+
+document.querySelector('form').addEventListener('submit',function(e) {
+
+    e.preventDefault();
+    const email = document.getElementById('staticEmail2').value;
+    
+    let emails;
+    if(localStorage.getItem('emails') === null) {
+        emails = []
+    }
+    else {
+        emails = JSON.parse(localStorage.getItem('emails'))
+    }
+    emails.push(email);
+    localStorage.setItem('emails',JSON.stringify(emails));
+    alert('Email saved');
+});
+
+// document.querySelector()
+
+const tasks = JSON.parse(localStorage.getItem('emails'));
+
+tasks.forEach(function(task) {
+    console.log(task);
+});
+
+console.log(tasks);
+
+
+
+
+
+
 
 
 
