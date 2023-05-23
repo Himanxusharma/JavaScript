@@ -44,7 +44,7 @@
             </div>
         </div>
         <ul class="collection">
-            <li class="collection-item">Alvin <a href="#!" class="secondary-content special-link"><i
+            <li class="collection-item" id="task-title">Alvin <a href="#!" class="secondary-content special-link"><i
                         class="material-icons">grade</i></a></li>
 
             <li class="collection-item">Alvin <a href="#!" class="secondary-content"><i
@@ -57,6 +57,24 @@
                         class="material-icons">grade</i></a></li>
 
         </ul>
+
+        <form class="row g-3" id="name-list">
+            <div class="col-auto">
+                <label for="username" class="visually-hidden">Disabled </label>
+                <input type="text" readonly class="form-control-plaintext" id="username" placeholder="not editable">
+            </div>
+            <div class="col-auto">
+                <label for="staticEmail2" id="email" class="visually-hidden">Email</label>
+                <input type="text"  id="staticEmail2" class="email"   placeholder="Email">
+            </div>
+            <div class="col-auto">
+                <label for="inputPassword2" class="visually-hidden">Password</label>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3" id="submit-btn">Confirm identity</button>
+            </div>
+        </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="DOM.js"></script>
