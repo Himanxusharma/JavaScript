@@ -598,6 +598,22 @@ todo.edit(22);
 todo.delete();
 
 
+const person = {
+
+    hello: function (){
+        console.log('Hello');
+    }
+    ,
+    age:function(){
+        console.log('age');
+    }
+}
+
+person.hello();
+person.age();
+
+
+
 // General Loops
 // FOR LOOP
 
@@ -643,6 +659,13 @@ const cars=['Ford','Chevy','Honda','Toyota'];
 // }
 
 // FOREACH
+//  For Each is a method that takes in a function and applies it to each element of an array.
+//  It is a higher order function.
+//  It is a method of the array object.
+//  It is a method that takes in a function as an argument.
+//  It is a method that calls a function for each element in an array.
+
+
 // cars.forEach(function(car,index,array){
 //     console.log(`${index} : ${car}`);
 //     console.log(array);
@@ -663,6 +686,9 @@ const cars=['Ford','Chevy','Honda','Toyota'];
 // console.log(ids);
 
 // FOR IN LOOP
+//  The for...in loop is used to iterate through the keys of an object.
+//  It can be used for all kinds of objects, including strings and arrays.
+//  but you should avoid using for...in for iterables.
 const user={
     firstName:'John',
     lastName:'Doe',
@@ -671,6 +697,22 @@ const user={
 
 for(let x in user){
     console.log(`${x} : ${user[x]}`);
+}
+
+
+// For of loop
+// The for...of loop is used to iterate through an iterable object (array, string, arguments, etc.).
+// The for...of loop is used to iterate through the values of an iterable.
+// Complexity of for of loop O^2
+const users=[
+    {id:1,name:'John'},
+    {id:2,name:'Sara'},
+    {id:3,name:'Karen'},
+    {id:4,name:'Steve'}
+];
+
+for(let user of users){ 
+    console.log(user.name);
 }
 
 
@@ -761,3 +803,4 @@ for(let a=0;a<10;a++){
 }
 
 console.log('Global Scope: ',a,b,c);
+
