@@ -72,8 +72,8 @@
 // console.log(re1, typeof re1);
 // console.log(re2, typeof re2);
 
-
-// //Prototypes
+// //Prototypes save memory space
+//Prototypes are used to add methods and properties to an object
 
 // function Person(firstName,lastName,dob){
 //     this.firstName = firstName;
@@ -114,7 +114,49 @@
 
 // //Prototypal Inheritance
 
+// function Person (firstname, lastname)
+// {
+//     this.firstname = firstname;
+//     this.lastname = lastname;
 
+// }
 
- 
+// Person.prototype.message= function(){
+//     return `Hello ${this.firstname} ${this.lastname}`;
+// }
+// const person1 = new Person('John','Doe');
+// console.log(person1.message());;
+// function Customer (firstname, lastname,phone, email){
+
+//     Person.call (this,firstname,lastname);
+//     this.phone= phone;
+//     this.email = email;
+// }
+// Customer.prototype = Object.create(Person.prototype);   //To inherit the prototype of Person
+// Customer.prototype.constructor = Customer;  //To make the constructor Customer instead of Person
+//  const customer1 = new Customer('Jack','Sparrow','100','js@gmail.com');
+
+//  console.log(customer1.message());  //Inherited from Person
+//  console.log(customer1);        //Inherited from Customer
+//  console.log(Person);        //Inherited from Person
+
+// //Object.create
+
+const profilePrototype = {
+  message: function () {
+    return `Hello, I am ${this.name} my age is ${this.age}`;
+  },
+
+  setName: function (name) {
+    this.name = name;
+  },
+  setAge: function (age) {
+    this.age = age;
+  },
+};
+
+const jack = Object.create(profilePrototype);
+jack.setName("Jack");
+jack.setAge(37);
+console.log(jack.message());
 
