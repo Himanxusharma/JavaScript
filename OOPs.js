@@ -193,32 +193,32 @@
 
 // //Subclasses
 
-class Person{
-    constructor (firstName,lastName,dob){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dob = new Date(dob);
-    }
-    message(){
-        return `Hello, ${this.firstName} ${this.lastName}`;
-    }
-}
+// class Person{
+//     constructor (firstName,lastName,dob){
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.dob = new Date(dob);
+//     }
+//     message(){
+//         return `Hello, ${this.firstName} ${this.lastName}`;
+//     }
+// }
 
-class Customer extends Person{
-    constructor(firstName,lastName,dob,phone,email){
-        super(firstName,lastName,dob);  //To call the constructor of the parent class
-        this.phone = phone;
-        this.email = email;
-    }
+// class Customer extends Person{
+//     constructor(firstName,lastName,dob,phone,email){
+//         super(firstName,lastName,dob);  //To call the constructor of the parent class
+//         this.phone = phone;
+//         this.email = email;
+//     }
 
-    static getMembershipCost()  //Static method is called without instantiating the class   
-        {
-        return 500;
-    }
+//     static getMembershipCost()  //Static method is called without instantiating the class   
+//         {
+//         return 500;
+//     }
      
-}
+// }
 
-const customer1 = new Customer("Jack","Sparrow","10-09-2002","100","email.com");
-console.log(customer1.message());
-console.log(customer1);
-console.log(Customer.getMembershipCost());  //Static method can be called without instantiating the class
+// const customer1 = new Customer("Jack","Sparrow","10-09-2002","100","email.com");
+// console.log(customer1.message());
+// console.log(customer1);
+// console.log(Customer.getMembershipCost());  //Static method can be called without instantiating the class
