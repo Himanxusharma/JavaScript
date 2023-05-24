@@ -1,0 +1,1 @@
+document.getElementById('name-list').addEventListener('click',loadData)

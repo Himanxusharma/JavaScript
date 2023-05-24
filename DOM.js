@@ -269,7 +269,11 @@
 //     let val;
 //     val = e;
 
-//     // Event target element
+//     // Event target element   
+// The target property returns the element where the event occured.
+// The target property is read-only.   
+
+
 //     val = e.target;
 //     val = e.target.id;
 //     val = e.target.className;
