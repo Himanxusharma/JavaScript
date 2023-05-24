@@ -142,21 +142,83 @@
 
 // //Object.create
 
-const profilePrototype = {
-  message: function () {
-    return `Hello, I am ${this.name} my age is ${this.age}`;
-  },
+// const profilePrototype = {
+//   message: function () {
+//     return `Hello, I am ${this.name} my age is ${this.age}`;
+//   },
 
-  setName: function (name) {
-    this.name = name;
-  },
-  setAge: function (age) {
-    this.age = age;
-  },
-};
+//   setName: function (name) {
+//     this.name = name;
+//   },
+//   setAge: function (age) {
+//     this.age = age;
+//   },
+// };
 
-const jack = Object.create(profilePrototype);
-jack.setName("Jack");
-jack.setAge(37);
-console.log(jack.message());
+// const jack = Object.create(profilePrototype);
+// jack.setName("Jack");
+// jack.setAge(37);
+// console.log(jack.message());
 
+
+// //ES6 Classes    //Syntactical Sugar over Prototypes and Inheritance 
+// //ES6 introduced classes. A class is a type of function, but instead of using the keyword function to initiate it, we use the keyword class , and the properties are assigned inside a constructor() method.
+
+
+// class Person{
+
+//     constructor(firstName,lastName,dob){
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.dob = new Date(dob);    //Date is a built in function   
+
+//     }
+
+//     message(){
+//         return `Hello, ${this.firstName} ${this.lastName}`;
+//     }
+//     calculateAge(){
+//         var diff= Date.now() - this.dob.getTime();
+//         var ageDate = new Date(diff);
+//         return Math.abs(ageDate.getUTCFullYear() - 1970);
+
+//     }
+
+// }
+
+// const alan = new Person("Alan","Smith","8-12-1990");
+// console.log(alan.calculateAge());
+// console.log(alan.message());
+// console.log(alan);
+
+// //Subclasses
+
+class Person{
+    constructor (firstName,lastName,dob){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = new Date(dob);
+    }
+    message(){
+        return `Hello, ${this.firstName} ${this.lastName}`;
+    }
+}
+
+class Customer extends Person{
+    constructor(firstName,lastName,dob,phone,email){
+        super(firstName,lastName,dob);  //To call the constructor of the parent class
+        this.phone = phone;
+        this.email = email;
+    }
+
+    static getMembershipCost()  //Static method is called without instantiating the class   
+        {
+        return 500;
+    }
+     
+}
+
+const customer1 = new Customer("Jack","Sparrow","10-09-2002","100","email.com");
+console.log(customer1.message());
+console.log(customer1);
+console.log(Customer.getMembershipCost());  //Static method can be called without instantiating the class
