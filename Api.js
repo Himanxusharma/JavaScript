@@ -194,6 +194,8 @@
 // }
 
 
+
+// // xhr get data from external api
 // // jokes 
 
 // document.getElementById('getdata').addEventListener('click',getData);
@@ -223,6 +225,85 @@
 
 //   xhr.send();
   
-
-
 // }
+
+
+
+// // asynchronous javascript
+
+// // synchronous javascript
+
+const todos  = [
+
+  { title: "First", body:"This is first todo"},
+  { title:"Second", body:"This is Second todo"},
+  { title:"Third", body:"This is Third todo"}
+
+
+]
+
+function createTodo(todo, callback){
+
+  setTimeout(function(){
+    todos.push(todo)
+    callback()
+  },2000)
+}
+
+
+function getTodos(){
+  let output =``
+  setTimeout(()=>{
+    todos.forEach(function(todo){
+      output += `<li>${todo.body}</li>`;
+    })
+
+    document.querySelector('.todos').innerHTML = output
+  },1000)
+}
+
+createTodo(  { title:"Fourth", body:"This is Fourth todo"},getTodos);
+
+document.getElementById('view').addEventListener('click',getTodos);
+document.getElementById('pop').addEventListener('click',removeTodo);
+
+function removeTodo(todo){
+  setTimeout(function(){
+    todos.pop(todo);
+    getTodos();
+  },2000)
+}
+
+
+// // callback function - A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+// // We  can pass anonymous function as a callback function
+// // Aonymous function - A function without a name is called an anonymous function. An anonymous function is often not accessible after its initial creation.
+
+
+// // promises
+
+// // async await
+
+// // fetch api
+
+// // arrow function
+
+// // destructuring
+
+// // spread operator
+
+// // rest operator
+
+// // classes
+
+// // modules
+
+// // generators
+
+// // symbols
+
+
+
+
+
+
