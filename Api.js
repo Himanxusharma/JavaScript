@@ -118,7 +118,7 @@
 // statusText
 // Returns the status-text (e.g. "OK" or "Not Found")
 
-// xhr get json data
+// // xhr get json data
 
 // document.getElementById("check-btn").addEventListener("click", loadUser);
 // function loadUser() {
@@ -139,7 +139,7 @@
 //                 ${user.email}
 //                 </p>
 //                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-//     </li>
+//                 </li>
 //             </ul>
 //             `;
 //       document.getElementById("name-list").innerHTML = output;
@@ -151,13 +151,78 @@
 //   xhr.send();
 // }
 
-function loadUSer(){
 
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET','user.json');
-  const user = JSON.parse(this.reponseText);
-  console.log(user);
-  xhr.send();
 
-}
 
+// // xhr get json array data - Multiple Users
+
+// document.getElementById('check-btn').addEventListener('click',loadUsers);
+
+// function loadUsers(){
+//     console.log('load Users')
+//     const xhr = new XMLHttpRequest();
+//     xhr.open('GET','users.json',true);
+    
+//     xhr.onload = function(){
+//       if(this.status ===200){
+//         const users = JSON.parse(this.responseText);
+//         let output = '';
+//         users.forEach(users => {
+//           output += `
+//                       <ul class="collection">    
+//                           <li class="collection-item avatar">
+//                           <img src="${users.avatar} " alt="" class="circle">
+//                           <span class="title">ID : ${users.id}</span>
+//                           <p>${users.first_name} <br>
+//                           ${users.last_name}<br>
+//                           ${users.email}
+//                           </p>
+//                           <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+//                           </li>
+//                       </ul>
+//                       `;
+  
+  
+//       });
+//       document.getElementById('name-list').innerHTML = output;
+      
+//       }
+
+//     }
+  
+//   xhr.send();
+// }
+
+
+// // jokes 
+
+// document.getElementById('getdata').addEventListener('click',getData);
+
+// function getData(e){
+
+//   e.preventDefault();
+//   // console.log('Get Data');
+//   const number = document.getElementById('number').value;
+//   // console.log(number);
+//   let URL = `https://v2.jokeapi.dev/joke/Dark?type=single&amount=${number}`;
+//   const xhr = new XMLHttpRequest();
+//   xhr.open('GET',URL,true);
+//   xhr.onload = function(){
+//     if(this.status === 200){
+//       const response = JSON.parse(this.responseText);
+//       let output =``;
+//       console.log(response);
+//       response.jokes.forEach(function(item){
+//         output += `<li>${item.joke}</li>`;
+        
+//       });    
+//       console.log(output);
+//       document.querySelector('.jokes').innerHTML = output;
+//     }
+//   }
+
+//   xhr.send();
+  
+
+
+// }
