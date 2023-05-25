@@ -120,33 +120,44 @@
 
 // xhr get json data
 
-document.getElementById("check-btn").addEventListener("click", loadUser);
-function loadUser() {
-  console.log("load user");
+// document.getElementById("check-btn").addEventListener("click", loadUser);
+// function loadUser() {
+//   console.log("load user");
+//   const xhr = new XMLHttpRequest();
+//   xhr.open("GET", "user.json", true);
+//   xhr.onload = function () {
+//     if (this.status === 200) {
+//       // console.log(this.responseText);
+//       const user = JSON.parse(this.responseText);
+//       const output = `
+//             <ul class="collection">    
+//                 <li class="collection-item avatar">
+//                 <img src="${user.avatar} " alt="" class="circle">
+//                 <span class="title">ID : ${user.id}</span>
+//                 <p>${user.first_name} <br>
+//                 ${user.last_name}<br>
+//                 ${user.email}
+//                 </p>
+//                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+//     </li>
+//             </ul>
+//             `;
+//       document.getElementById("name-list").innerHTML = output;
+
+//       console.log(user);
+//     }
+//   };
+
+//   xhr.send();
+// }
+
+function loadUSer(){
+
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", "user.json", true);
-  xhr.onload = function () {
-    if (this.status === 200) {
-      // console.log(this.responseText);
-      const user = JSON.parse(this.responseText);
-      const output = `
-            <ul class="collection">    
-                <li class="collection-item avatar">
-                <img src="${user.avatar} " alt="" class="circle">
-                <span class="title">ID : ${user.id}</span>
-                <p>${user.first_name} <br>
-                ${user.last_name}<br>
-                ${user.email}
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-            </ul>
-            `;
-      document.getElementById("name-list").innerHTML = output;
-
-      console.log(user);
-    }
-  };
-
+  xhr.open('GET','user.json');
+  const user = JSON.parse(this.reponseText);
+  console.log(user);
   xhr.send();
+
 }
+
