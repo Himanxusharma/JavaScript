@@ -6,6 +6,25 @@
 
 // Why Xhr is used? - The XMLHttpRequest object can be used to request data from a web server.
 
+// AJAX = Asynchronous JavaScript And XML.
+
+// AJAX is not a programming language.
+
+// AJAX just uses a combination of:
+
+// 1.   A browser built-in XMLHttpRequest object (to request data from a web server)
+// 2.   JavaScript and HTML DOM (to display or use the data)
+
+//  How AJAX works
+// 1. An event occurs in a web page (the page is loaded, a button is clicked)
+// 2. An XMLHttpRequest object is created by JavaScript
+// 3. The XMLHttpRequest object sends a request to a web server
+// 4. The server processes the request
+// 5. The server sends a response back to the web page
+// 6. The response is read by JavaScript
+// 7. Proper action (like page update) is performed by JavaScript
+
+
 // document.getElementById("check-btn").addEventListener("click", loadData);
 
 // // onload is used to check the status of the request
@@ -228,56 +247,163 @@
 // }
 
 
-
-// // asynchronous javascript
-
-// // synchronous javascript
-
-const todos  = [
-
-  { title: "First", body:"This is first todo"},
-  { title:"Second", body:"This is Second todo"},
-  { title:"Third", body:"This is Third todo"}
+//  // The main difference between synchronous and asynchronous callbacks is that synchronous callbacks are executed immediately, whereas the execution of asynchronous callbacks is deferred to a later point in time.
 
 
-]
+// // Asynchronous Call back function
 
-function createTodo(todo, callback){
+// // Todo list
 
-  setTimeout(function(){
-    todos.push(todo)
-    callback()
-  },2000)
-}
+// const todos  = [
+
+//   { title: "First", body:"This is first todo"},
+//   { title:"Second", body:"This is Second todo"},
+//   { title:"Third", body:"This is Third todo"}
+
+// ]
+
+// function createTodo(todo, callback){
+
+//   setTimeout(function(){
+//     todos.push(todo)
+//     callback()
+//   },2000)
+// }
 
 
-function getTodos(){
-  let output =``
-  setTimeout(()=>{
-    todos.forEach(function(todo){
-      output += `<li>${todo.body}</li>`;
-    })
+// function getTodos(){
+//   let output =``
+//   setTimeout(()=>{
+//     todos.forEach(function(todo){
+//       output += `<li>${todo.body}</li>`;
+//     })
 
-    document.querySelector('.todos').innerHTML = output
-  },1000)
-}
+//     document.querySelector('.todos').innerHTML = output
+//   },1000)
+// }
 
-createTodo(  { title:"Fourth", body:"This is Fourth todo"},getTodos);
+// createTodo(  { title:"Fourth", body:"This is Fourth todo"},getTodos);
 
-document.getElementById('view').addEventListener('click',getTodos);
-document.getElementById('pop').addEventListener('click',removeTodo);
+// document.getElementById('view').addEventListener('click',getTodos);
+// document.getElementById('pop').addEventListener('click',removeTodo);
 
-function removeTodo(todo){
-  setTimeout(function(){
-    todos.pop(todo);
-    getTodos();
-  },2000)
-}
+// function removeTodo(todo){
+//   setTimeout(function(){
+//     todos.pop(todo);
+//     getTodos();
+//   },2000)
+// }
 
 
 // // callback function - A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
 // // We  can pass anonymous function as a callback function
 // // Aonymous function - A function without a name is called an anonymous function. An anonymous function is often not accessible after its initial creation.
+
+
+// // Asynchronous Call back function
+//  // reason for using Asynchronous Call back function -  Asynchronous code allows the program to continue to run while waiting for the API request to return a response. This way, other functions can run without having to wait for the response to come back.
+
+// console.log('start');
+
+// function getGreetingAsync(name, cb) {
+//    setTimeout(() => {
+//      cb(`Hello ${name}!`);
+//    }, 0);
+// }
+
+// console.log('before getGreetingAsync');
+
+// getGreetingAsync('Maxim', (greeting) => {
+//   console.log(greeting);
+// });
+
+// console.log('end');
+
+// // Output:
+// // start
+// // before getGreetingAsync
+// // end
+// // Hello Maxim!
+
+
+//  // Synchronous callback function
+//  // reason for using synchronous callback function -  Synchronous code is executed in sequence – each statement waits for the previous statement to finish before executing. Synchronous programming is easier to understand and follow the logic of the program.
+// console.log('start');
+
+// function getGreeting(name, cb) {
+//   cb(`Hello ${name}!`);
+// }
+
+// console.log('before getGreeting');
+
+// getGreeting('Maxim', (greeting) => {
+//   console.log(greeting);
+// });
+
+// console.log('end');
+
+// // Output:
+// // start
+// // before getGreeting
+// // Hello Maxim!
+// // end
+
+//  //  Custom http Library
+
+// const custom = new myHttp();
+// const post = custom.get('https://jsonplaceholder.typicode.com/posts',
+// function(err,res){
+//     if(err){
+//         console.log(err)
+//     }
+//     else{
+//         console.log(res)
+//     }
+// })
+
+
+// // Create POST, PUT and DELETE request
+
+// const custom = new myHttp();
+// const data = {
+//     title: 'A new title',
+//     body: 'This is a new body'
+// }
+
+// // // POST request
+// custom.post('https://jsonplaceholder.typicode.com/posts',data,function(err,res){
+//     if(err){
+//         console.log(err)
+//     }
+//     else{
+//         console.log(res)
+//     }
+// })
+
+// // // PUT request
+// custom.put('https://jsonplaceholder.typicode.com/posts/1',data,function(err,res){
+//     if(err){
+//         console.log(err)
+//     }
+//     else{
+//         console.log(res)
+//     }
+// })
+
+// // // DELETE request
+// custom.delete('https://jsonplaceholder.typicode.com/posts/1',
+// function(err,res){
+//     if(err){
+//         console.log(err)
+//     }
+//     else{
+//         console.log(res)
+//     }
+// })
+
+
+
+
 
 
 // // promises
