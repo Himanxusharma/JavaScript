@@ -445,6 +445,18 @@
 // // async await
 
 // // fetch api
+document.getElementById('button1').addEventListener('click',getText)
+
+function getText() {
+
+    console.log('getText called');
+    fetch('data.txt').then(function (res) {
+        console.log(res.text())
+    })
+
+}
+
+
 
 // // arrow function
 
